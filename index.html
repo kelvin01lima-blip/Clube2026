@@ -172,7 +172,8 @@
     }
 
     .cat-card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: var(--sidebar-dark); margin-bottom: 5px; }
-    .cat-card .price-tag { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; color: var(--orange-primary); font-weight: bold; margin-bottom: 10px; }
+    .cat-card .price-tag { font-family: 'Orbitron', sans-serif; font-size: 1.25rem; color: var(--orange-primary); font-weight: bold; margin-bottom: 4px; }
+    .cat-card .price-subtext { font-size: 0.8rem; color: var(--green-accent); font-weight: bold; margin-bottom: 12px; }
     .cat-card p { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; margin-bottom: 20px; line-height: 1.4; }
 
     .btn-detalhes {
@@ -400,7 +401,7 @@
         <h2><span class="step-num">01</span> Selecione a Categoria Pretendida para 2026</h2>
         
         <div class="info-box">
-          📈 <strong>Validade Contratual:</strong> Agosto/2026 a Setembro/2027. Clique em <strong>"Ver Tabela de Serviços e Regras"</strong> para visualizar os valores por peça/modelo.
+          📈 <strong>Condições de Pagamento:</strong> O valor da anuidade é à vista no Pix ou parcelado no cartão em até 10x (com juros por conta do comprador). Tabela de serviços com <strong>7% de desconto automático no Pix</strong> ou 3x sem juros no cartão.
         </div>
 
         <div class="grid-categories">
@@ -412,7 +413,8 @@
                 <span class="badge-vagas">ÚLTIMAS VAGAS</span>
               </div>
               <h3>ANUAL OURO</h3>
-              <div class="price-tag">R$ 2.099,00 / ano</div>
+              <div class="price-tag">R$ 2.099,00 à vista</div>
+              <div class="price-subtext">ou em até 10x no cartão (com juros)</div>
               <p>Ideal para marcas em crescimento acelerado com volume contínuo de produção mensal de até 5kg.</p>
             </div>
             <button type="button" class="btn-detalhes" onclick="openModal('ouro', event)">🔍 Ver Tabela de Serviços e Regras</button>
@@ -426,7 +428,8 @@
                 <span class="badge-vagas">ÚLTIMAS VAGAS</span>
               </div>
               <h3>ANUAL DIAMANTE</h3>
-              <div class="price-tag">R$ 2.599,00 / ano</div>
+              <div class="price-tag">R$ 2.599,00 à vista</div>
+              <div class="price-subtext">ou em até 10x no cartão (com juros)</div>
               <p>Para grandes marcas, atacados e fabricantes que exigem alta demanda até 10kg + Inteligência de Dados.</p>
             </div>
             <button type="button" class="btn-detalhes" onclick="openModal('diamante', event)">🔍 Ver Tabela de Serviços e Regras</button>
@@ -483,10 +486,9 @@
               <label>Modelo principal do negócio hoje:*</label>
               <select id="modelo_negocio" required>
                 <option value="">Selecione...</option>
-                <option value="Atacado / Revenda">Atacado / Revenda</option>
-                <option value="Varejo / E-commerce">Varejo / E-commerce</option>
-                <option value="Fabricação / Banho">Fabricação / Banho</option>
-                <option value="Híbrido (Varejo + Atacado)">Híbrido (Varejo + Atacado)</option>
+                <option value="Revendedoras (Atacado)">Revendedoras (Atacado)</option>
+                <option value="E-commerce + Revendedoras">E-commerce + Revendedoras</option>
+                <option value="Fabricação + Revendedoras">Fabricação + Revendedoras</option>
               </select>
             </div>
 
@@ -570,13 +572,12 @@
   <script>
     let currentPlan = "ANUAL OURO 2026 (Até 5kg/mês) - R$ 2.099";
 
-    // URL DO GOOGLE APPS SCRIPT CONECTADA:
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyoNCwmT3u4RHxeYvAKkDE_CS-Du-JuDXDULTpidiIKtbRFKIsceubELzn-7KunYLx2/exec";
 
     const catDetails = {
       ouro: {
-        title: "🟡 ANUAL OURO 2026 (Até 5kg/mês) — R$ 2.099,00/ano",
-        descricao: "Plano desenhado para marcas em crescimento constante com franquia de até 5kg/mês. Garante o preço promocional congelado de Agosto/2026 até Setembro/2027.",
+        title: "🟡 ANUAL OURO 2026 (Até 5kg/mês) — R$ 2.099,00 à vista",
+        descricao: "Plano desenhado para marcas em crescimento constante com franquia de até 5kg/mês. Garante o preço promocional congelado de Agosto/2026 até Setembro/2027. Anuidade à vista ou em até 10x no cartão (com juros da operadora por conta do cliente).",
         prazos: "• Lote Express de até 1kg (com até 50 modelos): 5 dias úteis<br>• Lote de até 1kg (com mais de 50 modelos): 7 dias úteis<br>• Lote Padrão de até 3kg: 10 dias úteis<br>• Lotes de até 5kg unificados no mesmo lote: 12 dias úteis",
         relatorios: "• Relatório individual a cada Lote concluído<br>• Acesso ao Sistema/Dashboard em Tempo Real<br>• Relatório Trimestral Consolidado",
         precos: [
@@ -592,8 +593,8 @@
         ]
       },
       diamante: {
-        title: "💎 ANUAL DIAMANTE 2026 (Até 10kg/mês) — R$ 2.599,00/ano",
-        descricao: "Categoria VIP para atacados e indústrias com franquia de até 10kg/mês + Inteligência de Dados. Garante o preço promocional congelado de Agosto/2026 até Setembro/2027.",
+        title: "💎 ANUAL DIAMANTE 2026 (Até 10kg/mês) — R$ 2.599,00 à vista",
+        descricao: "Categoria VIP para atacados e indústrias com franquia de até 10kg/mês + Inteligência de Dados. Garante o preço promocional congelado de Agosto/2026 até Setembro/2027. Anuidade à vista ou em até 10x no cartão (com juros da operadora por conta do cliente).",
         prazos: "• Fracionamento prioritário em lotes de até 3kg (10 dias úteis) ou unificados até 5kg (12 dias úteis)<br>• Gestão de transbordo de agenda para envios de grande escala",
         relatorios: "• Relatório individual a cada Lote concluído<br>• Acesso ao Sistema/Dashboard em Tempo Real<br>• Relatórios Mensais, Semestrais e Anuais com inteligência de dados",
         precos: [
@@ -650,7 +651,7 @@
             ${tableRows}
           </tbody>
         </table>
-        <p style="font-size: 0.8rem; color: var(--text-muted); text-align: right;">* Pagamento no Pix com 7% de desconto automático.</p>
+        <p style="font-size: 0.8rem; color: var(--green-accent); font-weight: bold; text-align: right;">* 7% de desconto automático para pagamentos no Pix (À vista).</p>
       `;
 
       document.getElementById('categoryModal').classList.remove('hidden');
